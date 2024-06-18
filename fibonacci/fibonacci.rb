@@ -1,20 +1,21 @@
+# frozen_string_literal: false
+
 def fibonacci(number, array = [])
-  number.times do
-    if number < 2
-      array << number
-    else
-      array << number - 2 + number - 1
-    end
-    number -= 1
-  end
+  return [0] if number.zero?
+  return [0, 1] if number == 1
+
+  array.push(((fibonacci(number - 2) + fibonacci(number - 1))))
   array
 end
 
+p fibonacci(1)
+p fibonacci(2)
+p fibonacci(3)
 p fibonacci(5)
-p fibonacci(12)
+#p fibonacci(12)
 
 def fibonacci_rec(number, array = [])
 end
 
-p fibonacci_rec(5)
-p fibonacci_rec(12)
+#p fibonacci_rec(5)
+#p fibonacci_rec(12)

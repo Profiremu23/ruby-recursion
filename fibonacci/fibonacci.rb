@@ -1,14 +1,12 @@
 # frozen_string_literal: false
 
 def fibonacci(number)
-  array = []
   return [0] if number.zero?
-  return [0, 1] if number == 1
 
-  until number.zero?
-    array << number - 1
-    array.push(array[-2] + array.last) if array.length > 1
-    array.delete_at(-2) if number > 1
+  array = [0, 1]
+
+  (number - 1).times do
+    array << array[-2] + array.last if number > 1
     number -= 1
   end
   array

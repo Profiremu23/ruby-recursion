@@ -1,16 +1,26 @@
 # frozen_string_literal: false
 
-def merge(array1, array2, num1, num2)
-  i, j, k = 1
+def merge(array1, array2, num1 = array1.size, num2 = array2.size)
   array3 = []
-  while i <= num1 && j <= num2
-    if array1[i] < array2[j]
-      array3[k += 1] = array1[i += 1]
-    else
-      array3[k += 1] = array2[j += 1]
+  i = 0
+  j = 0
+  k = 0
+
+  while k < num1 + num2
+    if array2[j].nil? || array1[i] < array2[j]
+      array3[k] = array1[i]
+      i += 1
+    elsif array1[i].nil? || array1[i] > array2[j]
+      array3[k] = array2[j]
+      j += 1
     end
+    k += 1
   end
+  array3
 end
+
+p merge([7, 12, 42, 65], [3, 23, 31, 59])
+p merge([6, 17, 39, 48, 69], [0, 12, 28, 55])
 
 def merge_sort(array)
   if array.class != Array

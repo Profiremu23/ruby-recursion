@@ -23,19 +23,14 @@ p merge([7, 12, 42, 65], [3, 23, 31, 59])
 p merge([6, 17, 39, 48, 69], [0, 12, 28, 55])
 
 def merge_sort(array)
-  if array.class != Array
+  unless array.is_a?(Array)
     puts 'The entered argument is not an array!'
-  else
-    left_side = array.index(array.first)
-    right_side = array.index(array.last)
-    if left_side < right_side
-      centre = (left_side + right_side) / 2
-      merge_sort(array.each_slice((array.size / centre).round).to_a)
-      p array
-      #merge(left_side, centre, right_side)
-    end
+    return
   end
-  array
+  centre = array.length / 2
+  p left = merge_sort(array[0...centre]) unless array.size == 1
+  p right = merge_sort(array[centre...array.size]) unless array.size == 1
+  # p merge(left, right)
 end
 
 merge_sort(1)

@@ -31,6 +31,7 @@ def merge_sort(array)
   p left = merge_sort(array[0...centre]) unless array.size == 1
   p right = merge_sort(array[centre...array.size]) unless array.size == 1
   # p merge(left, right)
+  array
 end
 
 merge_sort(1)

@@ -1,22 +1,22 @@
 # frozen_string_literal: false
 
-def merge(array1, array2, num1 = array1.size, num2 = array2.size)
-  array3 = []
-  i = 0
-  j = 0
-  k = 0
+def merge(left, right)
+  sorted = []
+  left_index = 0
+  right_index = 0
+  sorted_index = 0
 
-  while k < num1 + num2
-    if array2[j].nil? || array1[i] < array2[j]
-      array3[k] = array1[i]
-      i += 1
-    elsif array1[i].nil? || array1[i] > array2[j]
-      array3[k] = array2[j]
-      j += 1
+  while sorted_index < left.size + right.size
+    if right[right_index].nil? || left[left_index] < right[right_index]
+      sorted[sorted_index] = left[left_index]
+      left_index += 1
+    elsif left[left_index].nil? || left[left_index] > right[right_index]
+      sorted[sorted_index] = right[right_index]
+      right_index += 1
     end
-    k += 1
+    sorted_index += 1
   end
-  array3
+  sorted
 end
 
 p merge([7, 12, 42, 65], [3, 23, 31, 59])
@@ -27,9 +27,11 @@ def merge_sort(array)
     puts 'The entered argument is not an array!'
     return
   end
+  return array if array.length < 2
+
   centre = array.length / 2
-  p left = merge_sort(array[0...centre]) unless array.size == 1
-  p right = merge_sort(array[centre...array.size]) unless array.size == 1
+  p left = merge_sort(array[0...centre])
+  p right = merge_sort(array[centre...array.size])
   # p merge(left, right)
   array
 end

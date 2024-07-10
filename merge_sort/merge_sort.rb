@@ -7,10 +7,16 @@ def merge(left, right)
   sorted_index = 0
 
   while sorted_index < left.size + right.size
-    if right[right_index].nil? || left[left_index] < right[right_index]
+    if right[right_index].nil?
       sorted[sorted_index] = left[left_index]
       left_index += 1
-    elsif left[left_index].nil? || left[left_index] > right[right_index]
+    elsif left[left_index].nil?
+      sorted[sorted_index] = right[right_index]
+      right_index += 1
+    elsif left[left_index] < right[right_index]
+      sorted[sorted_index] = left[left_index]
+      left_index += 1
+    elsif left[left_index] > right[right_index]
       sorted[sorted_index] = right[right_index]
       right_index += 1
     end
@@ -30,10 +36,9 @@ def merge_sort(array)
   return array if array.length < 2
 
   centre = array.length / 2
-  p left = merge_sort(array[0...centre])
-  p right = merge_sort(array[centre...array.size])
-  # p merge(left, right)
-  array
+  left = merge_sort(array[0...centre])
+  right = merge_sort(array[centre...array.size])
+  p merge(left, right)
 end
 
 merge_sort(1)

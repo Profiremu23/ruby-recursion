@@ -23,8 +23,7 @@ def fibonacci_rec(number)
   return [0, 1] if number == 1
 
   array = fibonacci_rec(number - 1)
-  array.push(array[-2] + array.last)
-  array
+  array << (array[-2] + array.last)
 end
 
 p fibonacci_rec(2)

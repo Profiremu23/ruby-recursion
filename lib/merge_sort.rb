@@ -1,7 +1,6 @@
 # frozen_string_literal: false
 
-def merge(left, right)
-  sorted = []
+def merge(left, right, sorted = [])
   left_index = 0
   right_index = 0
   sorted_index = 0
@@ -29,16 +28,15 @@ p merge([7, 12, 42, 65], [3, 23, 31, 59])
 p merge([6, 17, 39, 48, 69], [0, 12, 28, 55])
 
 def merge_sort(array)
-  unless array.is_a?(Array)
-    puts 'The entered argument is not an array!'
-    return
-  end
-  return array if array.length < 2
-
   centre = array.length / 2
-  left = merge_sort(array[0...centre])
-  right = merge_sort(array[centre...array.size])
-  p merge(left, right)
+
+  if array.is_a?(Array) == false || array.length < 2 # It returns one-element long arrays and also filters out the non-array arguments
+    array
+  else
+    left = merge_sort(array[0...centre])
+    right = merge_sort(array[centre...array.size])
+    p merge(left, right)
+  end
 end
 
 merge_sort(1)

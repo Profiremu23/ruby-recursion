@@ -8,4 +8,4 @@ If you are not familiar with the [Fibonacci sequence](https://en.wikipedia.org/w
 [Merge sort](https://en.wikipedia.org/wiki/Merge_sort) is a type of data sorting based on the divide and conquer programming concept, where it recurses an unsorted array's data until there is a single item left in the smallest sub-set, then re-merging those items back into a new resorted array. By using recursion, our Ruby Merge Sort program will be easy to look at, and it would be difficult to replicate merge sorting with only iteration.
 
 ## How do you run it?
-In order to run these wonderful masterpieces of software, navigate to ../ruby-recursion by using your Git/Linux/MacOS terminal, then enter "ruby fibonacci/fibonacci.rb" or "ruby merge_sort/merge_sort.rb" to run one of the two programs. Hope you enjoy it!
+In order to run these wonderful masterpieces of software, navigate to ../ruby-recursion by using your Git/Linux/MacOS terminal, then enter "ruby lib/fibonacci.rb" or "ruby lib/merge_sort.rb" to run one of the two programs. Hope you enjoy it!
